@@ -1,22 +1,32 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const connectDB = require("./config/db");
+import express from "express";
+import cors from "cors";
+import {getConnection} from "./config/db.js";
+import cookieParser from "cookie-parser";
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+// Connect to oracle for testing 
+getConnection();
 
-// Connect to MongoDB
-connectDB();
+//auth route
+import authroute from './routes/auth.route.js'
 
-// Test route
+app.use('/api/v1/auth',authroute);
+
+
+
+
+
+
+
 app.get("/", (req, res) => {
-  res.send("Backend is running and connected to MongoDB");
+  res.send("Backend is running and connected to oracle");
 });
 
-// 👇 ADD THIS LINE HERE
-app.use("/api/donors", require("./routes/donorRoutes"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

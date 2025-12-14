@@ -1,22 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const Donor = require("../models/Donor");
+import express from 'express'
 
-// REGISTER DONOR API
-router.post("/", async (req, res) => {
-  try {
-    const donor = await Donor.create(req.body);
+const router = express.Router()
 
-    res.status(201).json({
-      message: "Donor registered successfully",
-      donor,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      message: "Failed to register donor",
-    });
-  }
-});
+router.get("/",(req,res)=>{
+  res.send("Donor Routes are working")
+})
 
-module.exports = router;
+
+export default router;
