@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.ok {
+ 
+  color: rgb(32, 7, 7);
+  text-shadow:
+    2px 2px gold,
+    4px 4px rgb(162, 167, 150),
+    6px 6px rgb(200, 58, 200);
+}
+
+
+
+
+
+
+  .morph {
+    animation: spinMorph 3s linear infinite ;
+  }
+  
+  /* Define the keyframes */
+  @keyframes spinMorph {
+    0% {
+      transform: scale(1) rotate(0deg);
+      border-bottom-color: #9333ea; /* purple-600 */
+    }
+    50% {
+      transform: scale(1.2) rotate(180deg);
+      border-bottom-color: #a855f7; /* purple-500 */
+    }
+    100% {
+      transform: scale(1) rotate(360deg);
+      border-bottom-color: #9333ea; /* back to original */
+    }
+  }
+
+  @keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100vw);
+    }
+  }
+  
+  .moveRight {
+    animation: moveRight 6s linear infinite alternate;
+  }
+  
+  @keyframes MoveLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100vw);
+    }
+  }
+  
+  .MoveLeft {
+    animation: MoveLeft 6s linear infinite alternate;
+  }
+
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 6s ease infinite;
+  }
+  
+ 
+/* .ok{
+ 
+}
+  @keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100vw);
+    }
+  }
+  
+  .ok .moveRight {
+    animation: moveRight 8s linear infinite alternate;
+  }
+   */
+
+
+
+
+  
